@@ -3,13 +3,11 @@ var gulp = require('gulp'),
     gutil = require('gulp-util'),
     path = require('path'),
     argv = require('yargs')
-       .alias('p', 'port')
        .alias('s', 'server')
        .argv;
 
 var devServer = {
-  port: argv.port || Math.round(31337 + Math.random() * 1000),
-  server: argv.server || '0.0.0.0',
+  server: process.env.PORT,
   livereload: 35000 + Math.round((Math.random() * 1000)),
   root: './dist'
 };
